@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Taco Cloud</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
@@ -17,6 +17,11 @@
     <h3>Deliver my taco masterpieces to...</h3>
     <label for="deliveryName">Name: </label>
     <input th:field="*{deliveryName}" type="text"/>
+    <span class="validationError"
+          th:errors="*{ccNumber}"
+          th:if="${#fields.hasErrors('ccNumber')}">
+        CC Num Error
+    </span>
     <br/>
 
     <label for="deliveryStreet">Street address: </label>
